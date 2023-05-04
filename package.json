@@ -1,0 +1,24 @@
+{
+  "name": "cesta_basica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juheca-js/cesta_basica.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juheca-js/cesta_basica/issues"
+  },
+  "homepage": "https://github.com/Juheca-js/cesta_basica#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb-legacy": "^5.0.0"
+  }
+}
