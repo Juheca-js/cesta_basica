@@ -1,20 +1,41 @@
 const express = require('express');
+const { MongoClient } = require('mongodb');
+const userController = require('./routes/usersController');
 
 const app = express();
+const PORT = 3000;
 
-app.listen(3000)
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.static(__dirname + '/public'));
 
-const mongodb = require('mongodb-legacy');
-
-const MongoClient = mongodb.MongoClient;
-
+const client = new MongoClient('mongodb://localhost:27017', { useUnifiedTopology: true });
 let db;
 
-MongoClient.connect('mongodb://127.0.0.1:27017',(err, client)=>{
-    if(err !== undefined){
-        console.log(err)
-    } else {
-        db = client.db('cesta')
-    }
-})
+async function connectToDatabase() {
+  try {
+    await client.connect();
+    db = client.db('cesta_basica');
+    console.log('Conexión exitosa a la base de datos');
+  } catch (error) {
+    console.error('Error al conectar a la base de datos:', error);
+  }
+}
+
+connectToDatabase();
+
+app.use('/users', userController);
+
+
+
+
+app.listen(PORT, () => {
+  console.log(`Servidor iniciado en http://localhost:${PORT}`);
+});
+
+
+
+
+
+
 
