@@ -25,17 +25,11 @@ MongoClient.connect('mongodb://127.0.0.1:27017',(err, client)=>{
   if(err !== undefined){
     console.log(err);
   } else {
-    app.locals.db = client.db('cesta');
+    app.locals.db = client.db('cesta_basica');
   }
 });
 
 app.listen(3000, ()=>{
   console.log('Servidor levantado en el puerto 3000');
 });
-
-
-
-
-
-
 
