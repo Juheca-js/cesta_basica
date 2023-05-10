@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/Juheca-js/cesta_basica#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mongodb-legacy": "^5.0.0"
+    "express-session": "^1.17.3",
+    "mongodb-legacy": "^5.0.0",
+    "view-engine": "^1.1.1"
   }
 }
