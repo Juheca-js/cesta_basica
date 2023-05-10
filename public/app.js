@@ -1,36 +1,33 @@
-const loginButton = document.getElementsByClassName('forms_buttons-action');
 
-// Agrega un evento de envío al formulario
-loginButton.addEventListener('click', async (event) => {
-  event.preventDefault(); // Evita que se realice la acción de envío predeterminada
 
-  // Obtén los valores de usuario y contraseña del formulario
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+async function dibujarProductos(){
+  const productos = await fetch ("http://localhost:3000/Productos/showProductos")
+  const data = await productos.json();
 
-  // Crea un objeto con los datos del usuario
-  const user = { username, password };
+  
 
-  try {
-    // Realiza la solicitud POST al servidor utilizando Fetch API
-    const response = await fetch('/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(user),
-    });
+  // Recorremos el array de productos y por cada uno, creamos un elemento HTML que lo muestre
+  data.forEach(producto => {
+    const contenedorProductos = document.querySelector('#contenedorProductos')
+    const productoHTML = document.createElement('div');
+    productoHTML.classList.add('producto');
+    
+    // Creamos un elemento HTML para cada dato del producto y lo agregamos al elemento del producto
+    const nombreHTML = document.createElement('h2');
+    nombreHTML.textContent = producto.name;
+    productoHTML.appendChild(nombreHTML);
+    
+    const cantidadHTML = document.createElement('p');
+    cantidadHTML.textContent = `Cantidad: ${producto.cantidad}`;
+    productoHTML.appendChild(cantidadHTML);
+    
+    const precioHTML = document.createElement('p');
+    precioHTML.textContent = `Precio: ${producto.preciolidl} € (LIDL) / ${producto.preciomercadona} € (Mercadona) / ${producto.precioeroski} € (Eroski)`;
+    productoHTML.appendChild(precioHTML);
+    
+    // Agregamos el elemento del producto al contenedor de productos
+    contenedorProductos.appendChild(productoHTML);
+  });
+}
 
-    // Verifica el estado de la respuesta
-    if (response.ok) {
-      // El inicio de sesión fue exitoso, redirige al usuario a la página de administrador
-      window.location.href = '/admin.html'; // Reemplaza '/admin' con la ruta de la página de administrador
-    } else {
-      // El inicio de sesión falló, puedes mostrar un mensaje de error al usuario aquí
-      console.error('Inicio de sesión fallido');
-    }
-  } catch (error) {
-    // Hubo un error en la solicitud, puedes manejarlo de acuerdo a tus necesidades
-    console.error('Error en la solicitud:', error);
-  }
-});
+dibujarProductos()
