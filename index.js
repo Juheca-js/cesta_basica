@@ -1,36 +1,36 @@
 const express = require('express');
-const { MongoClient } = require('mongodb');
-const userController = require('./routes/usersController');
+const mongodb = require('mongodb-legacy');
 
 const app = express();
-const PORT = 3000;
 
-app.use(express.urlencoded({ extended: true }));
+
+
 app.use(express.json());
-app.use(express.static(__dirname + '/public'));
+app.use(express.urlencoded({extended: false}));
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
+ 
 
-const client = new MongoClient('mongodb://localhost:27017', { useUnifiedTopology: true });
-let db;
+// Configurar la carpeta 'views' como carpeta de vistas
+app.set('views', __dirname + '/views');
 
-async function connectToDatabase() {
-  try {
-    await client.connect();
-    db = client.db('cesta_basica');
-    console.log('Conexión exitosa a la base de datos');
-  } catch (error) {
-    console.error('Error al conectar a la base de datos:', error);
+
+const usuarios = require('./routes/usersController');
+app.use('/usuarios', usuarios);
+
+
+const MongoClient = mongodb.MongoClient;
+
+MongoClient.connect('mongodb://127.0.0.1:27017',(err, client)=>{
+  if(err !== undefined){
+    console.log(err);
+  } else {
+    app.locals.db = client.db('cesta');
   }
-}
+});
 
-connectToDatabase();
-
-app.use('/users', userController);
-
-
-
-
-app.listen(PORT, () => {
-  console.log(`Servidor iniciado en http://localhost:${PORT}`);
+app.listen(3000, ()=>{
+  console.log('Servidor levantado en el puerto 3000');
 });
 
 
