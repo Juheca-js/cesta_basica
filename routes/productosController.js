@@ -41,13 +41,13 @@ router.delete('/deleteproducto', (req, res) =>{
         router.put('/editProducto',(req, res) => {
           console.log(req.body)
           console.log('entro en el put')
-            const productId = req.body.id;
+            const productId = req.body._id;
             console.log(productId)
             console.log(req.body.name)
           
             req.app.locals.db.collection('productos').updateOne(
               { _id: new ObjectId(productId) },
-              { $set:{ name: req.body.name }},
+              { $set:{ name: req.body.name, cantidad: req.body.cantidad, preciolidl: req.body.preciolidl, preciomercadona: req.body.preciomercadona, precioresoki: req.body.precioeroski }},
               (err, data) => {
                 if (err !== undefined) {
                   console.log(err);
