@@ -18,26 +18,29 @@ document.querySelector('#edit').addEventListener('click', async (e) => {
 
 
   // Obtener el ID del producto
-  const productoId = document.getElementById('productoId').value;
+  
   
 
   // Obtener los valores actualizados del formulario
+  const Id = document.getElementById('productoId');
   const nombreInput = document.getElementById('name');
   const cantidadInput = document.getElementById('cantidad');
   const preciolidlInput = document.getElementById('preciolidl');
   const preciomercadonaInput = document.getElementById('preciomercadona');
   const precioeroskiInput = document.getElementById('precioeroski');
 
-  const productoActualizado = {
+
+  const productoActualizado = { 
+    id: Id.value,
     name: nombreInput.value,
-    cantidad: parseInt(cantidadInput.value),
-    preciolidl: parseFloat(preciolidlInput.value),
-    preciomercadona: parseFloat(preciomercadonaInput.value),
-    precioeroski: parseFloat(precioeroskiInput.value)
+    cantidad: cantidadInput.value,
+    preciolidl: preciolidlInput.value,
+    preciomercadona: preciomercadonaInput.value,
+    precioeroski: precioeroskiInput.value
   };
 
   // Llamar a la función editarProducto() con el ID y los datos actualizados del producto
-  editarProducto(productoId, productoActualizado);
+  editarProducto(productoActualizado);
 });
 
 
@@ -95,6 +98,10 @@ async function dibujarProductos(){
 
 // Agregar el evento click al botón para llamar a la función de edición
     botonEditar.addEventListener('click', () => {
+      const formAnadir = document.querySelector(".form-anadir");
+      formAnadir.style.display = "block";
+      document.querySelector('.add').style.display="none";
+      document.querySelector('#edit').style.display="block";
       cargarDatosProducto(producto);
     });
 
@@ -126,27 +133,45 @@ async function borrarProducto(nameProducto) {
   dibujarProductos();
 }
 
-async function editarProducto(productoId, updatedProduct) {
-  try {
-    const response = await fetch(`/editProducto/${productoId}`, {
-      method: 'PUT',
+async function editarProducto(producto) {
+
+
+ 
+    console.log('entro en editar producto')
+    console.log(producto.name)
+
+    const response = await fetch("/productos/editProducto", {
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify(updatedProduct)
+      body: JSON.stringify({ name: producto.name, cantidad: producto.cantidad, preciomercadona: producto.preciomercadona, preciolidl: producto.preciolidl, precioeroski: producto.precioeroski, _id: producto.id })
     });
 
-    if (response.ok) {
       // El producto se actualizó correctamente
       dibujarProductos();
-      cerrarFormulario();
-    } else {
-      // Error al editar el producto
-      console.log('Error al editar el producto');
-    }
-  } catch (error) {
-    console.log(error);
-  }
+
+}
+
+function cargarDatosProducto(producto) {
+    console.log(producto.name)
+    // Utiliza los datos del producto para cargar el formulario de edición
+    const Id = document.getElementById('productoId');
+    const nombreInput = document.getElementById('name');
+    const cantidadInput = document.getElementById('cantidad');
+    const preciolidlInput = document.getElementById('preciolidl');
+    const preciomercadonaInput = document.getElementById('preciomercadona');
+    const precioeroskiInput = document.getElementById('precioeroski');
+
+    nombreInput.value = producto.name;
+    cantidadInput.value = producto.cantidad;
+    preciolidlInput.value = producto.preciolidl;
+    preciomercadonaInput.value = producto.preciomercadona;
+    precioeroskiInput.value = producto.precioeroski;
+    Id.value = producto._id
+
+  
+
 }
 
 

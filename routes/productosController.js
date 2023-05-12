@@ -38,13 +38,16 @@ router.delete('/deleteproducto', (req, res) =>{
         })
         })
 
-        router.put('/editProducto/:id', (req, res) => {
-            const productId = req.params.id;
-            const updatedProduct = req.body;
+        router.put('/editProducto',(req, res) => {
+          console.log(req.body)
+          console.log('entro en el put')
+            const productId = req.body.id;
+            console.log(productId)
+            console.log(req.body.name)
           
             req.app.locals.db.collection('productos').updateOne(
-              { _id: ObjectId(productId) },
-              { $set: updatedProduct },
+              { _id: new ObjectId(productId) },
+              { $set:{ name: req.body.name }},
               (err, data) => {
                 if (err !== undefined) {
                   console.log(err);
