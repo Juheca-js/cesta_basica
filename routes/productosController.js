@@ -12,7 +12,7 @@ router.post('/createProducto', (req, res)=>{
         if(err !== undefined){
             console.log(err)
         } else {
-            res.send(data)
+            res.redirect('/usuarios/gestion')
         }
     })
 })

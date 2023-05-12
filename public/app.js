@@ -1,9 +1,19 @@
-
+function limpiarForm(){
+  document.getElementById("nombre").value = ""
+  document.getElementById("cantidad").value =""
+  document.getElementById("precioMercadona").value =""
+  document.getElementById("precioLidl").value = ""
+  document.getElementById("precioEroski").value = ""
+  document.getElementById("precioAldi").value = ""
+}
 
 document.getElementById("btnAgregar").addEventListener("click", (e) =>{
   e.preventDefault()
+  document.querySelector('.add').style.display="block";
+  document.querySelector('#edit').style.display="none";
   const formAnadir = document.querySelector(".form-anadir");
   formAnadir.style.display = "block";
+  limpiarForm()
 });
 
 document.getElementById('btnCerrar').addEventListener('click', (e) => {
@@ -16,12 +26,6 @@ document.querySelector('#edit').addEventListener('click', async (e) => {
   e.preventDefault();
 
 
-
-  // Obtener el ID del producto
-  
-  
-
-  // Obtener los valores actualizados del formulario
   const Id = document.getElementById('productoId');
   const nombreInput = document.getElementById('name');
   const cantidadInput = document.getElementById('cantidad');
@@ -42,6 +46,11 @@ document.querySelector('#edit').addEventListener('click', async (e) => {
   // Llamar a la función editarProducto() con el ID y los datos actualizados del producto
   editarProducto(productoActualizado);
 });
+
+document.querySelector('#add').addEventListener('click', () =>{
+  const formAnadir = document.querySelector(".form-anadir");
+  formAnadir.style.display = "none";
+})
 
 
 
@@ -135,8 +144,6 @@ async function borrarProducto(nameProducto) {
 
 async function editarProducto(producto) {
 
-
- 
     console.log('entro en editar producto')
     console.log(producto.name)
 
@@ -173,6 +180,8 @@ function cargarDatosProducto(producto) {
   
 
 }
+
+
 
 
 dibujarProductos()
