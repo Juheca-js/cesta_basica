@@ -5,13 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d949a75390.js"></script>
+    <link rel="stylesheet" href="../stylesGestion.css">
     <title>Document</title>
 </head>
 <body>
     <h2>Has entrado al area de administracion</h2>
+    
     <div id="contenedorProductos">
 
     </div>
+
+    <div class="form-anadir">
+        <form action="/productos/createProducto" method="POST">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name">
+            <label for="cantidad">Cantidad</label>
+            <input type="text" name="cantidad" id="cantidad">
+            <label for="preciolidl">Precio de Lidl</label>
+            <input type="number" name="preciolidl" id="preciolidl">
+            <label for="preciomercadona">Percio de Mercadona</label>
+            <input type="number" name="preciomercadona" id="preciomercadona">
+            <label for="precioeroski">Precio de Eroski</label>
+            <input type="number" name="precioeroski" id="precioeroski">
+            <input type="hidden" id="productoId" name="productoId">
+            <div>
+                <input type="submit" class="add" value="Añadir">
+                <input type="submit" class="edit" value="Editar" id="edit">
+                <button class="cerrar" id="btnCerrar">Cerrar</button>
+            </div>
+            
+    </div>
+
+    <button class="anadir" id="btnAgregar">Agregar Producto</button>
+
+
     <a  class="salir" href="/usuarios/logout"><i class="fas fa-sign-out-alt"></i></a> 
     <script src="../app.js"></script>
 </body>

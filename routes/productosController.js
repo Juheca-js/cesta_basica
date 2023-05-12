@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
+const { ObjectId } = require('mongodb');
 
 
 
@@ -17,7 +18,7 @@ router.post('/createProducto', (req, res)=>{
 })
 router.delete('/deleteproducto', (req, res) =>{
     req.app.locals.db.collection('productos')
-    .deleteOne({name: req.body.name},
+    .deleteOne({name: req.body.nameProducto},
     (err, data)=>{
     if(err !== undefined){
     console.log(err)
@@ -36,5 +37,23 @@ router.delete('/deleteproducto', (req, res) =>{
         }
         })
         })
+
+        router.put('/editProducto/:id', (req, res) => {
+            const productId = req.params.id;
+            const updatedProduct = req.body;
+          
+            req.app.locals.db.collection('productos').updateOne(
+              { _id: ObjectId(productId) },
+              { $set: updatedProduct },
+              (err, data) => {
+                if (err !== undefined) {
+                  console.log(err);
+                  res.status(500).send('Error al editar el producto');
+                } else {
+                  res.send(data);
+                }
+              }
+            );
+          });
 
 module.exports = router;
