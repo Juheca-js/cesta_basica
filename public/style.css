@@ -7,7 +7,6 @@ box-sizing: border-box;
 
 body{
 height: 100vh;
-display: flex;
 }
 
 nav{
@@ -81,5 +80,9 @@ position: relative;
 padding-top: 30px;
 text-shadow: 2px 2px 4px #e05a24;
 }
+
+
+
+
 
 
