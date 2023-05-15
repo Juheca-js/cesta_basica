@@ -1,0 +1,121 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+ @import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  outline: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7b42c;
+background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+}
+
+
+.form {
+  width: 320px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+  background: #141519;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+i.fa-unlock-alt {
+  font-size: 40px;
+  color: white;
+}
+
+.state {
+  text-align: center;
+}
+h1{
+  color: white;
+  font-weight: 400;
+}
+
+h2{
+  font-weight: 300;
+  color: white;
+}
+
+.form label {
+  color: white;
+  font-size: 16px;
+  display: block;
+  margin-top: 20px;
+}
+
+.form input[type='text'], .form input[type='password'] {
+  background-color: #22232a;
+  border-radius: 45px;
+  font-size: 15px;
+  height: 35px;
+  border: none;
+  padding-left: 15px;
+  width: calc(100% - 15px);
+  margin-bottom: 10px;
+  color: #656d79;
+}
+
+.form .add {
+  height: 35px;
+  width: 50%;
+  border-radius: 45px;
+  line-height: 35px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  margin-top: 10px;
+  transition: background .2s;
+  cursor: pointer;
+}
+
+.form .add:active {
+  transform: translateY(2px);
+}
+
+.add{
+  background: #ffb347;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+width: 50%;
+
+}
+.add:hover {
+  background-color: #599b2d;
+}
+
+
+@media only screen and (min-width: 901px) {
+  .form {
+    width: 400px;
+    margin: 100px auto;
+  }
+
+  .form label {
+    font-size: 20px;
+  }
+
+  .form input[type='text'], .form input[type='password'] {
+    font-size: 15px;
+    height: 45px;
+    width: calc(100% - 15px);
+  }
+
+  .form .add {
+    height: 45px;
+    font-size: 15px;
+  }
+}
+  
