@@ -7,12 +7,12 @@ function limpiarForm(){
   document.getElementById("precioAldi").value = ""
 }
 
-document.querySelector('#edit').addEventListener('click', () => {
-  const formAnadir = document.querySelector(".form-anadir");
+document.querySelector('#btnAgregar').addEventListener('click', () => {
+  const formAnadir = document.querySelector("#formAnadir");
     formAnadir.style.display = "block";
     document.getElementsByClassName('add')[0].style.display = "none";
     document.querySelector('#edit').style.display = "block";
-    cargarDatosProducto(producto);
+    
   
 });
 
@@ -47,8 +47,9 @@ document.querySelector('#edit').addEventListener('click', async (e) => {
   editarProducto(productoActualizado);
 });
 
-document.querySelector('#add').addEventListener('click', () =>{
+document.querySelector('.add').addEventListener('click', () =>{
   const formAnadir = document.querySelector(".form-anadir");
+  cargarDatosProducto(producto);
   formAnadir.style.display = "none";
 })
 
