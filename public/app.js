@@ -7,13 +7,13 @@ function limpiarForm(){
   document.getElementById("precioAldi").value = ""
 }
 
-document.getElementById("btnAgregar").addEventListener("click", (e) =>{
-  e.preventDefault()
-  document.querySelector('.add').style.display="block";
-  document.querySelector('#edit').style.display="none";
+document.querySelector('#edit').addEventListener('click', () => {
   const formAnadir = document.querySelector(".form-anadir");
-  formAnadir.style.display = "block";
-  limpiarForm()
+    formAnadir.style.display = "block";
+    document.getElementsByClassName('add')[0].style.display = "none";
+    document.querySelector('#edit').style.display = "block";
+    cargarDatosProducto(producto);
+  
 });
 
 document.getElementById('btnCerrar').addEventListener('click', (e) => {
@@ -86,6 +86,8 @@ async function dibujarProductos(){
 
     const botonBorrar = document.createElement('button');
     botonBorrar.textContent = 'Borrar';
+    botonBorrar.classList.add('actiondelete')
+    
     
     
     // Asignar un identificador único al botón
@@ -101,6 +103,7 @@ async function dibujarProductos(){
 
     const botonEditar = document.createElement('button');
     botonEditar.textContent = 'Editar';
+    botonEditar.classList.add('actionedit')
 
 // Asignar un identificador único al botón
     botonEditar.id = `botonEditar-${index}`;
@@ -109,7 +112,7 @@ async function dibujarProductos(){
     botonEditar.addEventListener('click', () => {
       const formAnadir = document.querySelector(".form-anadir");
       formAnadir.style.display = "block";
-      document.querySelector('.add').style.display="none";
+      document.getElementsByClassName('add').style.display="none";
       document.querySelector('#edit').style.display="block";
       cargarDatosProducto(producto);
     });
