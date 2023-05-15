@@ -10,8 +10,8 @@ function limpiarForm(){
 document.querySelector('#btnAgregar').addEventListener('click', () => {
   const formAnadir = document.querySelector("#formAnadir");
     formAnadir.style.display = "block";
-    document.getElementsByClassName('add')[0].style.display = "none";
-    document.querySelector('#edit').style.display = "block";
+    document.getElementsByClassName('add')[0].style.display = "block";
+    document.querySelector('#edit').style.display = "none";
     
   
 });
@@ -49,7 +49,7 @@ document.querySelector('#edit').addEventListener('click', async (e) => {
 
 document.querySelector('.add').addEventListener('click', () =>{
   const formAnadir = document.querySelector(".form-anadir");
-  cargarDatosProducto(producto);
+  cargarDatosProducto();
   formAnadir.style.display = "none";
 })
 
@@ -89,18 +89,18 @@ async function dibujarProductos(){
     botonBorrar.textContent = 'Borrar';
     botonBorrar.classList.add('actiondelete')
     
-    
+    console.log(document);
     
     // Asignar un identificador único al botón
     botonBorrar.id = `botonBorrar-${index}`;
     
+    productoHTML.appendChild(botonBorrar);
     // Agregar el evento click al botón para llamar a la función de borrado
     botonBorrar.addEventListener('click', () => {
       borrarProducto(producto.name);
     });
     
     // Agregar el botón al elemento del producto
-    productoHTML.appendChild(botonBorrar);
 
     const botonEditar = document.createElement('button');
     botonEditar.textContent = 'Editar';
@@ -113,7 +113,7 @@ async function dibujarProductos(){
     botonEditar.addEventListener('click', () => {
       const formAnadir = document.querySelector(".form-anadir");
       formAnadir.style.display = "block";
-      document.getElementsByClassName('add').style.display="none";
+      document.querySelector('.add').style.display="none";
       document.querySelector('#edit').style.display="block";
       cargarDatosProducto(producto);
     });
@@ -139,7 +139,7 @@ async function borrarProducto(nameProducto) {
     headers: {
       "content-Type": "application/json"
     },
-    body: JSON.stringify({nameProducto})
+    body: JSON.stringify({name: nameProducto})
   });
 
   // Llamar a dibujarProductos() después de eliminar el producto
