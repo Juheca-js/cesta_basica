@@ -12,6 +12,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
+
+// Configurar la carpeta 'views' como carpeta de vistas
+app.set('views', __dirname + '/views');
+
 
 const productosController = require('./routes/productosController')
 
