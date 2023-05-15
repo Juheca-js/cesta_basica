@@ -7,13 +7,13 @@ function limpiarForm(){
   document.getElementById("precioAldi").value = ""
 }
 
-document.getElementById("btnAgregar").addEventListener("click", (e) =>{
-  e.preventDefault()
-  document.querySelector('.add').style.display="block";
-  document.querySelector('#edit').style.display="none";
-  const formAnadir = document.querySelector(".form-anadir");
-  formAnadir.style.display = "block";
-  limpiarForm()
+document.querySelector('#btnAgregar').addEventListener('click', () => {
+  const formAnadir = document.querySelector("#formAnadir");
+    formAnadir.style.display = "block";
+    document.getElementsByClassName('add')[0].style.display = "block";
+    document.querySelector('#edit').style.display = "none";
+    
+  
 });
 
 document.getElementById('btnCerrar').addEventListener('click', (e) => {
@@ -47,8 +47,9 @@ document.querySelector('#edit').addEventListener('click', async (e) => {
   editarProducto(productoActualizado);
 });
 
-document.querySelector('#add').addEventListener('click', () =>{
+document.querySelector('.add').addEventListener('click', () =>{
   const formAnadir = document.querySelector(".form-anadir");
+  cargarDatosProducto();
   formAnadir.style.display = "none";
 })
 
@@ -86,21 +87,24 @@ async function dibujarProductos(){
 
     const botonBorrar = document.createElement('button');
     botonBorrar.textContent = 'Borrar';
+    botonBorrar.classList.add('actiondelete')
     
+    console.log(document);
     
     // Asignar un identificador único al botón
     botonBorrar.id = `botonBorrar-${index}`;
     
+    productoHTML.appendChild(botonBorrar);
     // Agregar el evento click al botón para llamar a la función de borrado
     botonBorrar.addEventListener('click', () => {
       borrarProducto(producto.name);
     });
     
     // Agregar el botón al elemento del producto
-    productoHTML.appendChild(botonBorrar);
 
     const botonEditar = document.createElement('button');
     botonEditar.textContent = 'Editar';
+    botonEditar.classList.add('actionedit')
 
 // Asignar un identificador único al botón
     botonEditar.id = `botonEditar-${index}`;
@@ -135,7 +139,7 @@ async function borrarProducto(nameProducto) {
     headers: {
       "content-Type": "application/json"
     },
-    body: JSON.stringify({nameProducto})
+    body: JSON.stringify({name: nameProducto})
   });
 
   // Llamar a dibujarProductos() después de eliminar el producto

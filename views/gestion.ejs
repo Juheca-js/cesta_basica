@@ -11,12 +11,13 @@
 <body>
     <div id="contenedorGestion">
         <h2>Has entrado al area de administracion</h2>
+        <button class="anadir" id="btnAgregar">Agregar Producto</button>
     
         <div id="contenedorProductos">
 
         </div>
-    
-        <div class="form-anadir">
+
+        <div class="form-anadir" id="formAnadir">
             <form action="../productos/createProducto" method="POST">
                 <label for="name">Nombre</label>
                 <input type="text" name="name" id="name">
@@ -34,15 +35,20 @@
                     <input type="submit" class="edit" value="Editar" id="edit">
                     <button class="cerrar" id="btnCerrar">Cerrar</button>
                 </div>
+
+            </form>
             
         </div>
 
-        <button class="anadir" id="btnAgregar">Agregar Producto</button>
+    
+        
 
+        
+        <a  class="salir" href="/usuarios/logout"><i class="fas fa-sign-out-alt"></i></a> 
     </div>
 
 
-    <a  class="salir" href="/usuarios/logout"><i class="fas fa-sign-out-alt"></i></a> 
+    
     <script src="../app.js"></script>
 </body>
 </html>
