@@ -1,7 +1,92 @@
-.form-anadir{
-    display: none;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-.edit{
+.form-anadir {
   display: none;
+  background-color: #FFC107;
+  padding: 20px;
+}
+
+.edit {
+  display: none;
+}
+
+#contenedorGestion {
+  border: 1px solid #1565C0;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.producto {
+  border: 1px solid #F44336;
+}
+
+#btnAgregar {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #9C27B0;
+  background-color: #FFC107;
+  display: block;
+  margin: 10px auto;
+}
+
+h2 {
+  font-size: 35px;
+  margin-top: 0%;
+  text-align: center;
+  color: #3F51B5;
+  position: relative;
+  padding-top: 30px;
+  text-shadow: 2px 2px 4px #7a361b;
+}
+
+.form-anadir label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-anadir input[type="text"],
+.form-anadir input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.form-anadir input[type="submit"],
+.form-anadir button {
+  font-weight: bold;
+  padding: 10px;
+  color: #9C27B0;
+  background-color: #FFC107;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.form-anadir input[type="submit"]:hover,
+.form-anadir button:hover,
+.add:hover,
+.edit:hover {
+  background-color: #FFA000;
+}
+
+.form-anadir input[type="hidden"] {
+  display: none;
+}
+
+#btnCerrar {
+  background-color: #F44336;
+  color: #fff;
+}
+
+#btnCerrar:hover {
+  background-color: #D32F2F;
 }
