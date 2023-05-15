@@ -18,7 +18,7 @@ router.post('/createProducto', (req, res)=>{
 })
 router.delete('/deleteproducto', (req, res) =>{
     req.app.locals.db.collection('productos')
-    .deleteOne({name: req.body.nameProducto},
+    .deleteOne({name: req.body.name},
     (err, data)=>{
     if(err !== undefined){
     console.log(err)
