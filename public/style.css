@@ -1,85 +1,155 @@
 
 *{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body{
-height: 100vh;
-display: flex;
+    height: 100vh;
 }
-
-nav{
-width: 20%;
-height: 100vh;
-background-color: #e2a763;
-box-shadow: 10px 0 10px rgba(0, 0, 10, 25%);
-display: flex;
-flex-direction: column;
-padding: 30px;
-}
-
-a{
-text-decoration: none;
-color: white;
-text-align: center center;
-}
-
-ul li {
-border: 1px solid #ccc;
-padding: 7px;
-margin-bottom: 7px;
-list-style: none;
-border-radius: 10px;
-}
-
-img{
-width: 18px;
-}
-
-.imgsal {
-width: 13px;
-}
-
-button{ 
-padding-top: 10px; 
-padding-bottom: 10px;
-margin-top: 45px;
-background-color: black;
-color: #f2f3f4;
-border-radius: 10px;
-font-weight: bold;
-} 
-
 
 .container{
-width: 80%;
-background-color: #f2f3f4;
-opacity: 0.2;
-background-image: url('imagenes/shopping.jpg');
-background-repeat: no-repeat;
-background-size: cover;
-position: relative;
-}
-
-.container:before{
-content:'';
-position: absolute;
-top: 0;
-bottom: 0;
-left: 0;
-right: 0;
-background-color: rgba(0,0,0,0.6);
+    background-color: #fdfeff; 
+    padding: 50px;
 }
 
 h1{ 
-font-size: 35px;
-text-align: center;
-color: white;
-position: relative;
-padding-top: 30px;
-text-shadow: 2px 2px 4px #e05a24;
+    font-size: 30px;
+    text-align: center;
+    color: #CB745E;
+    text-shadow: 4px 2px 4px #EE926F;
+    font-family: 'Kreon', serif;
+    padding-bottom: 30px;
 }
+
+img{
+    width: 28px;
+}
+
+#divPadre{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.divproducto{
+    width: 21%;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    font-size: 13px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+    background: #f2f3f4;
+    box-shadow: inset 22px 22px 31px rgba(203, 116, 94, 0.6),
+              inset -22px -22px 31px rgba(242, 243, 244, 0.7);
+     
+}
+
+.nombre-descripcion-producto{
+    padding-left: 30px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+  }
+
+
+.contenedor-supermercados-precio{
+    padding: 5px;
+}
+
+.supermercado {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.lidl-img{
+    width: 30px;
+    margin: 3px;
+}
+
+.mercadona-img{
+    width: 30px;
+    margin: 3px;
+}
+
+
+.eroski-img{
+    width: 30px;
+    margin: 3px;
+}
+
+.type-pan{
+    background: url(imagenes/bread.svg) no-repeat 10px 5px;
+    background-size: 26px 26px;
+}
+
+.type-lec{
+    background: url(imagenes/milk.svg) no-repeat 10px 5px;
+    background-size: 28px 28px;
+}
+
+.type-arr{
+        background: url(imagenes/rice.svg) no-repeat 10px 5px;
+        background-size: 26px 26px;
+}
+
+.type-ace{
+        background: url(imagenes/oil.svg) no-repeat 10px 5px;
+        background-size: 28px 28px;
+}
+
+.type-har{
+        background: url(imagenes/harina.svg) no-repeat 10px 5px;
+        background-size: 26px 26px;
+    }
+.type-yog{
+        background: url(imagenes/glass.svg) no-repeat 10px 5px;
+        background-size: 26px 26px;
+}
+
+.type-azu{
+        background: url(imagenes/zugar.svg) no-repeat 10px 5px;
+        background-size: 26px 26px;
+}
+
+.type-mac{
+        background: url(imagenes/macarron.svg) no-repeat 10px 5px;
+        background-size: 26px 26px;}
+
+h2{
+    font-size: 13px;
+    padding-left: 10px;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+span{
+    font-size: 10px;
+    display: block;
+    padding-left: 15px;
+    text-transform: capitalize;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.spanpreciolidl , .spanpreciomercadona, .spanprecioeroski{
+    margin-left: 0px;
+}
+
+.contenidosupermercado{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+    .divproducto {
+      width: 100%;
+      
+    }
+  }
 
 
