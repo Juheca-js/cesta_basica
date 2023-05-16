@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.form-anadir {
+  display: none;
+  background-color: #FFC107;
+padding: 20px;
+position: absolute;
+top: 100px;
+width: 400px;}
+
+.edit {
+  display: none;
+}
+
+#contenedorGestion {
+  background-color: #f7b42c;
+background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+  border: 1px solid #1565C0;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.producto {
+  border: 1px solid #F44336;
+  background-color: black;
+}
+
+#btnAgregar {
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #9C27B0;
+  background-color: #FFC107;
+  display: block;
+  margin: 10px auto;
+}
+
+.actiondelete, .actionedit{
+  padding: 10px;
+  background-color: #f7b42c;
+background-image: linear-gradient(315deg, #f7b42c 0%, #fc575e 74%);
+margin-right: 1rem;
+margin-bottom: 3rem;
+margin-top: 2rem;
+
+}
+
+h2 {
+  font-size: 35px;
+  margin-top: 0%;
+  text-align: center;
+  font-weight: 300;
+  color: white;
+  position: relative;
+  padding-top: 30px;
+  text-shadow: 2px 2px 4px #7a361b;
+}
+
+p {
+  color: white;
+}
+
+.form-anadir label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-anadir input[type="text"],
+.form-anadir input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.form-anadir input[type="submit"],
+.form-anadir button {
+  font-weight: bold;
+  padding: 10px;
+  color: #9C27B0;
+  background-color: #FFC107;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.form-anadir input[type="submit"]:hover,
+.form-anadir button:hover,
+.add:hover,
+.edit:hover {
+  background-color: #FFA000;
+}
+
+.form-anadir input[type="hidden"] {
+  display: none;
+}
+
+.fas{
+  font-size: 75px;
+  color: white;
+}
+
+#btnCerrar 
+  {
+    background: #ffb347;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffcc33, #ffb347); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+  
+}
+
+#btnCerrar:hover {
+  background-color: #D32F2F;
+}

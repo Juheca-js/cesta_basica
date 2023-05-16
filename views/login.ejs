@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesLogin.css">
+</head>
+
+<body>
+  <div class="background-container"></div>
+  <div class="form glassmorphism-effect">
+    <form action="../usuarios/login" method="POST">
+      <div class="state"><br><i class="fa fa-unlock-alt"></i><br>
+      <h2>Log In</h2>
+      <h1>Saregune Project</h1>
+      <div>
+          <label for="user">User</label>
+          <input type="text" id="user" name="user" required>
+        </div>
+        <div>
+          <label for="pass">Pass</label>
+          <input type="password" name="pass" id="pass">
+        </div>
+        <input type="submit" class="add" value="Login">
+    </form>
+  </div>   
+</body>
+</html>

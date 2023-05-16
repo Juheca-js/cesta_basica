@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>Login</title>
+  </head>
+  <body>
+    <div id="login-container">
+      <h1>Login</h1>
+      <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <div id="products-container" style="display:none;">
+      <h1>Products</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="products-list"></tbody>
+      </table>
+      <button id="add-product-btn">+</button>
+    </div>
+
+    <script>
+      const loginContainer = document.getElementById("login-container");
+      const loginForm = document.getElementById("login-form");
+      const productsContainer = document.getElementById("products-container");
+      const productsList = document.getElementById("products-list");
+      const addProductBtn = document.getElementById("add-product-btn");
+
+      let loggedIn = false;
+
+      loginForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const username = event.target.elements.username.value;
+        const password = event.target.elements.password.value;
+
+        // Check if username and password are correct
+        if (username === "admin" && password === "password") {
+          loggedIn = true;
+          loginContainer.style.display = "none";
+          productsContainer.style.display = "block";
+
+          // Populate the products list
+          const products = [
+            { name: "Product 1", cantidad: "Description 1", price: 10 },
+            { name: "Product 2", cantidad: "Description 2", price: 20 },
+            { name: "Product 3", cantidad: "Description 3", price: 30 },
+          ];
+
+          products.forEach((product) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+              <td>${product.name}</td>
+              <td>${product.description}</td>
+              <td>${product.price}</td>
+              <td>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+              </td>
+            `;
+            productsList.appendChild(tr);
+          });
+        } else {
+          alert("Invalid username or password");
+        }
+      });
+
+      addProductBtn.addEventListener("click", () => {
+
+        // Show the add product form
+        console.log("Add product");
+      });
+    </script>
+  </body>
+</html>
