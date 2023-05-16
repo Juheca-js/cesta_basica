@@ -58,7 +58,7 @@
             const contenerpreciolidl = document.createElement('div')
             contenerpreciolidl.classList.add('contenidosupermercado')
             const lidlPrecio = document.createElement('span');
-            lidlPrecio.textContent = `${producto.precioldl} €`;
+            lidlPrecio.textContent = `${producto.preciolidl} €`;
             lidlPrecio.classList.add('spanpreciolidl');
             contenerpreciolidl.appendChild(lidlPrecio)
             lidlDiv.appendChild(contenerpreciolidl)
@@ -119,19 +119,20 @@
       mostrarProductos(); 
   
       function limpiarForm(){
-        document.getElementById("nombre").value = ""
+        document.getElementById("name").value = ""
         document.getElementById("cantidad").value =""
-        document.getElementById("precioMercadona").value =""
-        document.getElementById("precioLidl").value = ""
-        document.getElementById("precioEroski").value = ""
-        document.getElementById("precioAldi").value = ""
+        document.getElementById("preciomercadona").value =""
+        document.getElementById("preciolidl").value = ""
+        document.getElementById("precioeroski").value = ""
       }
       
       document.querySelector('#btnAgregar').addEventListener('click', () => {
         const formAnadir = document.querySelector("#formAnadir");
+          limpiarForm()
           formAnadir.style.display = "block";
           document.getElementsByClassName('add')[0].style.display = "block";
           document.querySelector('#edit').style.display = "none";
+          
           
         
       });
@@ -278,7 +279,9 @@
             },
             body: JSON.stringify({ name: producto.name, cantidad: producto.cantidad, preciomercadona: producto.preciomercadona, preciolidl: producto.preciolidl, precioeroski: producto.precioeroski, _id: producto.id })
           });
-      
+          
+          const formAnadir = document.querySelector("#formAnadir");
+          formAnadir.style.display = "none";
             // El producto se actualizó correctamente
             dibujarProductos();
       

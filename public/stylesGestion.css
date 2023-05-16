@@ -9,8 +9,10 @@
 .form-anadir {
   display: none;
   background-color: #FFC107;
-  padding: 20px;
-}
+padding: 20px;
+position: absolute;
+top: 100px;
+width: 400px;}
 
 .edit {
   display: none;
